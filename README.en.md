@@ -27,7 +27,6 @@ Every skill here is a structured instruction set that agents load directly. Foll
 
 | Name | One-liner | Article |
 |---|---|---|
-| 🛡️ [**vibeguard**](#-vibeguard) | One sentence — "scan this project for security issues" — for local dependency-vuln, hardcoded-secret, and committed-`.env` checks, with a read-only HTML + Markdown report | — |
 | 💽 [**storage-analyzer**](#-storage-analyzer) | One sentence to scan your whole Mac / Windows drive — three-tier cleanup plan, one-click trash from the browser | [Article (Chinese)](https://mp.weixin.qq.com/s/NyOMIlOD986OC4SI9vmxlA) |
 | 🔥 [**aihot**](#-aihot-ai-hot-news-query) | Lets your agent pull AI HOT's daily report and all AI news from aihot.virxact.com with one Chinese sentence — no API key | [aihot.virxact.com](https://aihot.virxact.com) |
 | 🧹 [**neat-freak**](#-neat-freak) | After a session, run `/neat` to reconcile your project docs, CLAUDE.md, and agent memory with the code | [Article (Chinese)](https://mp.weixin.qq.com/s/tg1wd-iN2gWHWhXdY0faeg) |
@@ -51,41 +50,6 @@ Replace `<skill-name>` with the one you want — e.g. `neat-freak`, `hv-analysis
 ## ✨ Skills
 
 <a id="-skills"></a>
-
-<table>
-<tr><td>
-
-### 🛡️ vibeguard
-
-> *"Two minutes scanning before you ship beats getting scanned after."*
-
-Tell your agent "check this project for security issues" or "scan for dependency vulnerabilities" and it runs a **local** pass over your repo, then produces a **read-only HTML report + a Markdown audit report**. The report is written for product managers and project leads — non-security readers — and answers "does this block the release, do we need to schedule it now, what do engineering/ops need to confirm".
-
-**What it checks**
-
-- **Dependency vulnerabilities** — extracts deps from your lockfile, checks each against known advisories (CVE / GHSA), sorted by severity
-- **Hardcoded secrets** — API keys / tokens / passwords baked into code; the report only shows a redacted preview, never the full secret
-- **Sensitive files in git** — whether `.env`, private keys, or certs are being tracked
-- **Repo hygiene** — whether `.gitignore` covers what it should
-- **Outdated deps** — upgrade suggestions, without ever inflating "outdated" into "vulnerable"
-
-Supports JavaScript / TypeScript, Python, Go, Rust.
-
-**Its boundary (important)**
-
-It covers the **dependency and repo-hygiene** layer of security. It does not replace code audits, penetration testing, or deployment security review — business logic, access control, SQL injection, XSS still need separate review. The report says this repeatedly: no fear-mongering, no false sense of safety.
-
-**Two hard rules**
-
-- **Read-only, always.** Scanning only reads files and calls the vuln API — it never touches your source or dependencies, and the HTML report is for reading only, with no buttons that trigger local actions
-- **Fixes need your nod.** After you read the report, say "fix it / OK" in chat before the agent upgrades or cleans anything
-
-**🌐 Cross-platform**: Claude Code · Codex · OpenCode · OpenClaw
-
-→ [SKILL.md](./vibeguard/SKILL.md)
-
-</td></tr>
-</table>
 
 <table>
 <tr><td>
